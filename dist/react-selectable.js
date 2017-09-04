@@ -152,7 +152,6 @@ return /******/ (function(modules) { // webpackBootstrap
 			_this._openSelector = _this._openSelector.bind(_this);
 			_this._mouseDown = _this._mouseDown.bind(_this);
 			_this._mouseUp = _this._mouseUp.bind(_this);
-			_this._click = _this._click.bind(_this);
 			_this._selectElements = _this._selectElements.bind(_this);
 			_this._registerSelectable = _this._registerSelectable.bind(_this);
 			_this._unregisterSelectable = _this._unregisterSelectable.bind(_this);
@@ -304,15 +303,6 @@ return /******/ (function(modules) { // webpackBootstrap
 			}
 
 			/**
-	   * Called when the user has clicked in the group
-	   * @param  {Event} e
-	   */
-
-		}, {
-			key: '_click',
-			value: function _click(e) {}
-
-			/**
 	   * Selects multiple children given x/y coords of the mouse
 	   */
 
@@ -363,13 +353,13 @@ return /******/ (function(modules) { // webpackBootstrap
 				};
 
 				var filteredProps = Object.assign({}, this.props);
-				filteredProps.onClick = this._click;
 				delete filteredProps.onSelection;
 				delete filteredProps.fixedPosition;
 				delete filteredProps.selectOnMouseMove;
 				delete filteredProps.component;
 				delete filteredProps.tolerance;
 				delete filteredProps.preventDefault;
+				delete filteredProps.onNonItemClick;
 
 				return _react2.default.createElement(
 					this.props.component,
@@ -429,7 +419,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 		/**
 	  * Triggered when the user clicks in the component, but not on an item, e.g. whitespace
-	  * 
+	  *
 	  * @type {Function}
 	  */
 		onNonItemClick: _react2.default.PropTypes.func

@@ -210,6 +210,7 @@ class SelectableGroup extends React.Component {
         delete filteredProps.component;
         delete filteredProps.tolerance;
         delete filteredProps.preventDefault;
+        delete filteredProps.onNonItemClick;
 
         return (
             <this.props.component {...filteredProps}>
@@ -264,7 +265,7 @@ SelectableGroup.propTypes = {
 
     /**
      * Triggered when the user clicks in the component, but not on an item, e.g. whitespace
-     * 
+     *
      * @type {Function}
      */
     onNonItemClick: React.PropTypes.func,
